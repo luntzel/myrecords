@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-set :use_sudo, true
+set :use_sudo, false
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 # Put the app in this directory
@@ -35,17 +35,17 @@ end
 namespace :admin do
   desc "Link the server config to nginx."
   task :symlink_config, roles: :app do
-    run "#{sudo} ln -nfs #{deploy_to}/current/config/nginx.server /etc/nginx/sites-enabled/#{application}"
+    run "sudo ln -nfs #{deploy_to}/current/config/nginx.server /etc/nginx/sites-enabled/#{application}"
   end
 
   desc "Unlink the server config."
   task :unlink_config, roles: :app do
-    run "#{sudo} rm /etc/nginx/sites-enabled/#{application}"
+    run "sudo rm /etc/nginx/sites-enabled/#{application}"
   end
 
   desc "Restart nginx."
   task :nginx_restart, roles: :app do
-    run "#{sudo} service nginx restart"
+    run "sudo service nginx reload"
   end
 end
 

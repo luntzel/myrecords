@@ -12,7 +12,7 @@ server {
   charset utf-8;
 
   # Where the site is
-  root /srv/myrecords
+  root /srv/myrecords;
   
   # Try to access an actual file, else pass it to Passenger
   try_files $uri /system/maintenance.html @passenger;
