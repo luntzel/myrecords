@@ -1,3 +1,13 @@
+require "bundler/capistrano"
+set :use_sudo, false
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+# Put the app in this directory
+set :deploy_to, "srv/myrecords"
+set :deploy_via, :remote_cache
+
+
+
 set :application, "myrecords"
 set :repository,  "git@github.com:luntzel/myrecords.git"
 
@@ -6,6 +16,19 @@ set :repository,  "git@github.com:luntzel/myrecords.git"
 set :scm, :git
 
 role :web, "173.203.208.88"                          # Your HTTP server, Apache/etc
+
+
+after "deploy:cold" do
+  admin.symlink_config
+  admin.nginx_restart
+end
+
+namespace :deploy do
+  task :cold do
+    deploy.update
+    deploy.start
+  end
+end
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
