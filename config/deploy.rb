@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-set :use_sudo, false
+set :use_sudo, true
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 # Put the app in this directory
