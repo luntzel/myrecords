@@ -31,7 +31,7 @@ class Testing < Sinatra::Base
 
     def document_by_id id
       id = object_id(id) if String === id
-      settings.mongo_db['test'].
+      settings.mongo_db['myrecords'].
         find_one(:_id => id).to_json
     end
   end
