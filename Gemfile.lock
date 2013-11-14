@@ -1,6 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    bson (1.9.2)
+    bson_ext (1.9.2)
+      bson (~> 1.9.2)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -8,6 +11,8 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     highline (1.6.20)
+    mongo (1.9.2)
+      bson (~> 1.9.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -28,5 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bson_ext
   capistrano (= 2.15.5)
+  mongo
   sinatra
