@@ -19,37 +19,6 @@ role :web, "173.203.208.88"                          # Your HTTP server, Apache/
 role :app, "173.203.208.88"
 
 
-after "deploy:cold" do
-  admin.symlink_config
-  admin.nginx_restart
-end
-
-namespace :deploy do
-  task :cold do
-    deploy.update
-    deploy.start
-  end
-end
-
-
-namespace :admin do
-  desc "Link the server config to nginx."
-  task :symlink_config, roles: :app do
-    run "sudo ln -nfs #{deploy_to}/current/config/nginx.server /etc/nginx/sites-enabled/#{application}"
-  end
-
-  desc "Unlink the server config."
-  task :unlink_config, roles: :app do
-    run "sudo rm /etc/nginx/sites-enabled/#{application}"
-  end
-
-  desc "Restart nginx."
-  task :nginx_restart, roles: :app do
-    run "sudo service nginx restart"
-  end
-end
-
-
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
