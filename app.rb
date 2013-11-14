@@ -8,6 +8,6 @@ require "sinatra"
 # The app
 class Testing < Sinatra::Base
   get "/" do
-    "Hello, World!"
+    "Hello, Fuckbag!"
   end
 end
