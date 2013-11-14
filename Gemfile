@@ -4,4 +4,5 @@ gem 'sinatra'
 gem 'capistrano', '2.15.5'
 gem 'mongo'
 gem 'bson_ext'
+gem 'json'
 
