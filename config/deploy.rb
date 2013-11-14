@@ -16,6 +16,7 @@ set :repository,  "git@github.com:luntzel/myrecords.git"
 set :scm, :git
 
 role :web, "173.203.208.88"                          # Your HTTP server, Apache/etc
+role :app, "173.203.208.88"
 
 
 after "deploy:cold" do
