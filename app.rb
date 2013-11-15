@@ -8,7 +8,7 @@ require 'json/ext' # required for .to_json
 
 configure do
   set :logging, true
-  db = Connection.new.db('myrecords');
+  db = Mongo::Connection.new.db('myrecords');
 end
 
 # The app
