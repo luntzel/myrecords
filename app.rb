@@ -35,4 +35,17 @@ class Testing < Sinatra::Base
         find_one(:_id => id).to_json
     end
   end
+
+  # list all documents in the myrecords collection
+  get '/documents/?' do
+    content_type :json
+    settings.mongo_db['myrecords'].find.to_a.to_json
+  end
+
+  # find a document by its ID
+  get '/document/:id/?' do
+    content_type :json
+    document_by_id(params[:id]).to_json
+  end
+
 end
