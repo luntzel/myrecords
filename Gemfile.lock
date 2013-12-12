@@ -1,10 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (3.2.16)
+      activesupport (= 3.2.16)
+      builder (~> 3.0.0)
+    activesupport (3.2.16)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
     backports (3.3.5)
     bson (1.9.2)
     bson_ext (1.9.2)
       bson (~> 1.9.2)
+    builder (3.0.4)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -12,10 +19,16 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     highline (1.6.20)
+    i18n (0.6.9)
     json (1.6.1)
     mongo (1.9.2)
       bson (~> 1.9.2)
+    mongo_mapper (0.12.0)
+      activemodel (~> 3.0)
+      activesupport (~> 3.0)
+      plucky (~> 0.5.2)
     multi_json (1.8.2)
+    mustache (0.99.5)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -23,6 +36,8 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    plucky (0.5.2)
+      mongo (~> 1.5)
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
@@ -47,7 +62,10 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   capistrano (= 2.15.5)
+  i18n
   json
   mongo
+  mongo_mapper
+  mustache
   sinatra
   sinatra-contrib
