@@ -3,6 +3,8 @@ require "rubygems"
 require "bundler/setup"
 require 'sinatra'
 require 'mongo'
+require 'mongo_mapper'
+require 'mustache/sinatra'
 
 include Mongo
 
@@ -13,34 +15,46 @@ configure do
   set :mongo_db, conn.db('myrecords')
 end
 
+
+MongoMapper.database = 'myrecords'
+
 # The app
 class Myrecords < Sinatra::Base
+
+register Mustache::Sinatra
+require './views/layout'
+
+set :mustache, { :views => './views/', :templates => './templates/' }
+
   get "/" do
-    "Hello, is it me you're looking for? YEAH!!!"
-  end
-  get '/collections/?' do
-    settings.mongo_db.collection_names
-  end
-
-  # list all documents in the myrecord collection
-  get '/documents/?' do
-    content_type :json
-    settings.mongo_db['myrecords'].find.to_a.to_json
+     # Post.create(:title => 'Trust the Stache', :body => '<p>Mustache is a great template language for the client and server') 
+    @posts = Post.all 
+    mustache :index
   end
 
-  # find a document by its ID
-  get '/document/:id/?' do
-    content_type :json
-    document_by_id(params[:id]).to_json
+  get '/new' do
+    @post = Post.new
+    mustache :new
   end
 
-  # insert a new document from the request parameters,
-  # then return the full document
-  post '/new_document/?' do
-    content_type :json
-    new_id = settings.mongo_db['myrecords'].insert params
-    document_by_id(new_id).to_json
+  post '/' do
+    @post = Post.new(params[:post])
+    redirect '/'
   end
 
+  get '/:id' do |id|
+    @post = Post.find(id)
+    mustache :show
+  end
+
+end
+
+class Post
+  include MongoMapper::Document
+
+  key :title, String
+  key :body, String
+
+  timestamps!
 end
 
