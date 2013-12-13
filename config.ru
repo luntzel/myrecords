@@ -1,4 +1,4 @@
-require "./app"
+require "./myrecords"
 require 'sinatra'
 
 run Myrecords
