@@ -4,7 +4,7 @@ require "bundler/setup"
 require 'sinatra'
 require 'mongo'
 require 'mongo_mapper'
-require 'mustache/sinatra'
+require 'haml'
 
 include Mongo
 
@@ -21,40 +21,22 @@ MongoMapper.database = 'myrecords'
 # The app
 class Myrecords < Sinatra::Base
 
-register Mustache::Sinatra
-require './views/layout'
-
-set :mustache, { :views => './views/', :templates => './templates/' }
-
   get "/" do
-     # Post.create(:title => 'Trust the Stache', :body => '<p>Mustache is a great template language for the client and server') 
-    @posts = Post.all 
-    mustache :index
+    "Hi there. Lets get started!"
+  end
+
+  get "/records" do
+    haml :records
   end
 
   get '/new' do
-    @post = Post.new
-    mustache :new
+    "this will be the new record page"
   end
 
   post '/' do
-    @post = Post.new(params[:post])
     redirect '/'
   end
+p
 
-  get '/:id' do |id|
-    @post = Post.find(id)
-    mustache :show
-  end
-
-end
-
-class Post
-  include MongoMapper::Document
-
-  key :title, String
-  key :body, String
-
-  timestamps!
 end
 
