@@ -198,6 +198,7 @@ DEPENDENCIES
   jquery-rails
   mongoid!
   rails (= 4.0.4)
+  rake
   rspec-rails
   rvm-capistrano
   sass-rails (~> 4.0.2)

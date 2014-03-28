@@ -30,6 +30,8 @@ group :doc do
   gem 'sdoc', :require => false
 end
 
+gem 'rake'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
