@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem 'sdoc', :require => false
 end
 
 # Use ActiveModel has_secure_password
@@ -38,7 +38,7 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-gem 'capistrano', '~> 2.15.5', require: true, group: :development
+gem 'capistrano', '~> 2.15.5', :require => true, :group => :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
