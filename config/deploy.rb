@@ -5,7 +5,7 @@ ssh_options[:forward_agent] = true
 # Put the app in this directory
 set :deploy_to, "/srv/myrecords"
 set :deploy_via, :remote_cache
-
+set :branch, "remotes/origin/rails"
 
 
 set :application, "myrecords"
