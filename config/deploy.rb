@@ -12,7 +12,7 @@ set :branch, "remotes/origin/rails"
 set :application, "myrecords"
 set :repository,  "git@github.com:luntzel/myrecords.git"
 
-
+set :rvm_type, :system
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
