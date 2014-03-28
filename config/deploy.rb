@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "rvm/capistrano"
 set :use_sudo, false
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -11,7 +12,6 @@ set :branch, "remotes/origin/rails"
 set :application, "myrecords"
 set :repository,  "git@github.com:luntzel/myrecords.git"
 
-set :rvm_ruby_string, '2.1.1@myrecords'
 
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
