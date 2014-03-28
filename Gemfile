@@ -45,7 +45,7 @@ gem 'capistrano', '~> 2.15.5', :require => true, :group => :development
 
 # mongoid beta
 #gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'
-gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
+gem 'mongoid', :git => 'https://github.com/mongoid/mongoid.git'
 
 gem 'slim-rails'
 
