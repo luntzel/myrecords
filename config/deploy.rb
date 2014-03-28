@@ -11,9 +11,8 @@ set :branch, "remotes/origin/rails"
 set :application, "myrecords"
 set :repository,  "git@github.com:luntzel/myrecords.git"
 
+set :rvm_ruby_string, '2.1.1@myrecords'
 
-# Add RVM's lib directory to the load path.
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
