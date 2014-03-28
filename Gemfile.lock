@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/mongoid/mongoid.git
+  remote: https://github.com/mongoid/mongoid.git
   revision: dba1c17b1dba667e50347ab616aaf6f2e1bee094
   specs:
     mongoid (4.0.0.beta1)
@@ -194,7 +194,7 @@ DEPENDENCIES
   database_cleaner
   jbuilder (~> 1.2)
   jquery-rails
-  mongoid (~> 4.0.0.beta1)!
+  mongoid!
   rails (= 4.0.4)
   rspec-rails
   sass-rails (~> 4.0.2)
