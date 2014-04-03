@@ -63,3 +63,5 @@ end
 gem 'rvm-capistrano'
 gem 'therubyracer'
 gem 'thin'
+gem 'sprockets-rails'
+
