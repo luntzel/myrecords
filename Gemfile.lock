@@ -215,7 +215,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.2)
   sdoc
   slim-rails
-  sprockets-rails
   therubyracer
   thin
   turbolinks
