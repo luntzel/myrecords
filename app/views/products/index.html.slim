@@ -1,6 +1,6 @@
 body bgcolor="#FFFFF" /
 center
-  img height="25%" src="/assets/header.png" width="100%" /
+  img height="25%" src="/images/header.png" width="100%" /
 
 h2 id="subheader" Vinyl is rad.
 
@@ -27,7 +27,7 @@ table border="1" style="background-color:lightblue;"
         td = product.price
         td = link_to 'Show', product
         td = link_to 'Edit', edit_product_path(product)
-        td = link_to 'Remove', product, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = button_to 'Remove', product, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
