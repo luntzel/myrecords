@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+load 'deploy/assets'
 set :use_sudo, false
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
