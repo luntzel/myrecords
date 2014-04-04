@@ -62,3 +62,4 @@ end
 
 gem 'rvm-capistrano'
 gem 'therubyracer'
+gem 'thin'
