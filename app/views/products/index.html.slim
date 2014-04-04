@@ -27,7 +27,7 @@ table border="1" style="background-color:lightblue;"
         td = product.price
         td = link_to 'Show', product
         td = link_to 'Edit', edit_product_path(product)
-        td = button_to 'Remove', product, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Remove', product, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
