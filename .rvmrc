@@ -1,2 +1,2 @@
-rvm use ruby-1.9.3-p448@myrecords --create
+rvm use ruby-1.9.3-p547@myrecords --create
 rvm_auto_reload_flag=2
