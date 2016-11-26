@@ -1,39 +1,36 @@
-require "bundler/capistrano"
-require "rvm/capistrano"
-load 'deploy/assets'
-set :use_sudo, false
-default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
-# Put the app in this directory
-set :deploy_to, "/srv/myrecords"
-set :deploy_via, :remote_cache
-set :branch, "remotes/origin/master"
+# config valid only for current version of Capistrano
+lock '3.6.1'
 
+set :application, 'myrecords'
+set :repo_url, 'git@github.com:luntzel/myrecords.git'
 
-set :application, "myrecords"
-set :repository,  "git@github.com:luntzel/myrecords.git"
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :rvm_type, :system
+# Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, '/srv/myrecords'
 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+# Default value for :scm is :git
 set :scm, :git
 
-role :web, "173.203.208.88"                          # Your HTTP server, Apache/etc
-role :app, "173.203.208.88"
+# Default value for :format is :airbrussh.
+# set :format, :airbrussh
 
+# You can configure the Airbrussh format using :format_options.
+# These are the defaults.
+# set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+# Default value for :pty is false
+# set :pty, true
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+# Default value for :linked_files is []
+# append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
-# If you are using Passenger mod_rails uncomment this:
- namespace :deploy do
-   task :start do ; end
-   task :stop do ; end
-   task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
- end
+# Default value for linked_dirs is []
+# append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Default value for keep_releases is 5
+set :keep_releases, 5

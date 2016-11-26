@@ -40,7 +40,9 @@ gem 'rake'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-gem 'capistrano', '~> 2.15.5', :require => true, :group => :development
+group :development do
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
