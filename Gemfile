@@ -4,6 +4,8 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.4'
 
 
+gem 'capistrano-passenger'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -40,9 +42,9 @@ gem 'rake'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-group :development do
-  gem 'capistrano-rbenv', '~> 2.0', require: false
-end
+#group :development do
+#  gem 'capistrano-rbenv', '~> 2.0', require: false
+#end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

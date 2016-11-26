@@ -7,13 +7,12 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
  
-server 'kopitar', roles: %w{app web}
-role :web, "173.203.208.88"                          # Your HTTP server, Apache/etc
+server '173.203.208.88', roles: %w{app}
 role :app, "173.203.208.88"
 
 
 # if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "deploy:cleanup"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
